@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+#spinner-container {
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+#image {
+    max-width: 100%;
+    max-height: 100%;
+    display: none;
+}
+
+#download-link {
+    display: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+footer a {
+    color: #1da1f2;
+    text-decoration: none;
+}

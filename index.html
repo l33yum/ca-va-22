@@ -12,12 +12,13 @@
         <label for="imageUpload" class="custom-file-upload">
             Choose an Image
         </label>
-        <input type="file" id="imageUpload" accept="image/*" style="display:none;">
+        <input type="file" id="imageUpload" accept="image/*">
         <br>
         <button id="toggleButton" disabled>Start Spinning</button>
         <div id="imageContainer">
             <div id="spinner">
                 <img id="uploadedImage" alt="Uploaded Image">
+                <div id="centerDot"></div>
             </div>
         </div>
         <div class="control-group">
@@ -29,7 +30,6 @@
             <input type="color" id="borderColorControl" value="#b8a3c8">
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

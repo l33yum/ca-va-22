@@ -1,21 +1,16 @@
-/* General Body Style */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #F5F5F5; /* Light gray background color */
-    color: #333; /* Darker text color for contrast */
+    background-color: #FFC0CB; /* Light pink background color */
+    color: #333;
     text-align: center;
 }
-
-/* Header Style */
 h1 {
     color: #333;
     margin: 30px 0;
-    font-size: 2em; /* Slightly larger font size for emphasis */
+    font-size: 2em;
 }
-
-/* Button Style */
 button {
     background-color: #28a745; /* Green color for the button */
     color: #FFFFFF; /* White text color */
@@ -27,51 +22,34 @@ button {
     margin: 20px 0;
     transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
-
 button:hover {
     background-color: #218838; /* Darker green on hover */
 }
-
-/* Input Style */
 input[type="file"] {
     margin: 20px 0;
-    font-size: 16px; /* Adjust font size for better accessibility */
+    font-size: 16px;
 }
-
-/* GIF Container Style */
-#gifPreview {
+#gif-container {
     margin: 20px auto;
-    max-width: 100%; /* Ensure GIF does not overflow */
-    display: inline-block; /* Center GIF */
 }
-
-/* Video Preview Style */
-#preview video {
-    max-width: 100%; /* Ensure video does not overflow */
-    border: 1px solid #ddd; /* Light border around video */
-    border-radius: 5px; /* Rounded corners for the video */
+#gif-container img {
+    max-width: 100%;
+    height: auto;
 }
-
-/* Loading Indicator Style */
 #loading {
-    display: none; /* Hide by default */
+    display: none;
     font-size: 18px;
-    color: #666; /* Gray color for loading text */
+    color: #666;
 }
-
-/* Footer Style */
 footer {
     margin: 30px 0;
     font-size: 16px;
-    color: #666; /* Gray color for footer text */
+    color: #666;
 }
-
-/* Footer Link Style */
 footer a {
     color: #28a745; /* Match the button color */
     text-decoration: none;
 }
-
 footer a:hover {
     text-decoration: underline;
 }

@@ -97,6 +97,7 @@
                             canvas.width = image.naturalWidth;
                             canvas.height = image.naturalHeight;
                             generateFrames();
+                            displayGif(); // Generate and display GIF as soon as the image is loaded
                         };
                     };
                     reader.readAsDataURL(file);
@@ -119,7 +120,7 @@
             }
 
             // Generate GIF from frames and display it
-            generateButton.addEventListener('click', function() {
+            function displayGif() {
                 const gif = new GIF({
                     workers: 2,
                     quality: 10,
@@ -141,7 +142,7 @@
                 });
 
                 gif.render();
-            });
+            }
         });
     </script>
 </body>

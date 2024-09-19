@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spin Your Image</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <title>Spinning Image Converter</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>✨ Spin Your Image ✨</h1>
-        <input type="file" id="upload" accept="image/*">
-        <div id="image-container">
-            <img id="spinning-image" src="" alt="Your Spinning Image" style="display: none;">
+        <h1>Spinning Image Converter</h1>
+        <label for="imageUpload" class="custom-file-upload">
+            Choose an Image
+        </label>
+        <input type="file" id="imageUpload" accept="image/*" style="display:none;">
+        <br>
+        <button id="toggleButton" disabled>Start Spinning</button>
+        <div id="imageContainer">
+            <div id="spinner">
+                <img id="uploadedImage" alt="Uploaded Image">
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="speedControl">Spinning Speed:</label>
+            <input type="range" id="speedControl" min="1" max="10" value="5">
+        </div>
+        <div class="control-group">
+            <label for="borderColorControl">Border Color:</label>
+            <input type="color" id="borderColorControl" value="#b8a3c8">
         </div>
     </div>
-    <footer>
-        <p>Created with ❤️ by <a href="#">Your Site</a></p>
-    </footer>
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -28,6 +28,7 @@ h1 {
     height: 300px;
     margin: 20px auto;
     position: relative;
+    overflow: hidden;
 }
 #uploadedImage {
     max-width: 100%;
@@ -35,7 +36,7 @@ h1 {
     border: 10px solid #b8a3c8;
     border-radius: 50%;
     box-sizing: border-box;
-    display: none;
+    display: none; /* Hide the image initially */
 }
 .custom-file-upload {
     border: 2px solid #b8a3c8;

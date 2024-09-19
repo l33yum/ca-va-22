@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const uploadInput = document.getElementById('upload');
-    const generateButton = document.getElementById('generate-video');
-    const downloadLink = document.getElementById('download-link');
+    const generateButton = document.getElementById('generate-gif');
     const gifContainer = document.getElementById('gif-container');
-    const canvas = document.getElementById('canvas');
+    const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     let image = new Image();
     let frames = [];
-    const totalFrames = 360; // 6 revolutions, 60 frames per revolution
+    const totalFrames = 360; // Number of frames for 6 revolutions
 
     // Handle image upload
     uploadInput.addEventListener('change', function(event) {
@@ -47,12 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Generate video and GIF from frames and provide download link
+    // Generate GIF from frames and display it
     generateButton.addEventListener('click', function() {
-        const video = new Whammy.Video();
-        let framesAdded = 0;
-
-        // Create GIF
         const gif = new GIF({
             workers: 2,
             quality: 10,
@@ -60,34 +55,20 @@ document.addEventListener('DOMContentLoaded', function() {
             height: canvas.height
         });
 
-        frames.forEach((frame, index) => {
+        frames.forEach(frame => {
             const img = new Image();
             img.src = frame;
             img.onload = function() {
                 ctx.drawImage(img, 0, 0);
                 gif.addFrame(ctx, { delay: 100 }); // Add frame to GIF (100 ms per frame)
-                video.add(frame, 100); // Add frame to video (100 ms per frame)
-                framesAdded++;
-                if (framesAdded === totalFrames) {
-                    // Compile video and create download link
-                    video.compile(false, function(output) {
-                        const videoURL = URL.createObjectURL(output);
-                        downloadLink.href = videoURL;
-                        downloadLink.download = 'spinning-image.mp4'; // Set default file name
-                        downloadLink.style.display = 'block'; // Show download link
-                    });
-
-                    // Compile GIF and display it
-                    gif.on('finished', function(blob) {
-                        const gifURL = URL.createObjectURL(blob);
-                        gifContainer.innerHTML = `<img src="${gifURL}" alt="Spinning GIF" style="max-width: 100%; height: auto;">`; // Display GIF
-                    });
-                    gif.render();
-                }
-            };
-            img.onerror = function() {
-                console.error('Failed to load frame image.');
             };
         });
+
+        gif.on('finished', function(blob) {
+            const gifURL = URL.createObjectURL(blob);
+            gifContainer.innerHTML = `<img src="${gifURL}" alt="Spinning GIF" style="max-width: 100%; height: auto;">`; // Display GIF
+        });
+
+        gif.render();
     });
 });

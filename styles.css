@@ -1,9 +1,9 @@
 /* General Body Style */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #F8F9FA; /* Light gray background color similar to ChatGPT */
+    background-color: #F5F5F5; /* Light gray background color */
     color: #333; /* Darker text color for contrast */
     text-align: center;
 }
@@ -11,44 +11,64 @@ body {
 /* Header Style */
 h1 {
     color: #333;
-    margin-top: 20px;
+    margin: 30px 0;
+    font-size: 2em; /* Slightly larger font size for emphasis */
 }
 
 /* Button Style */
 button {
-    background-color: #007BFF; /* Blue color for the button */
+    background-color: #28a745; /* Green color for the button */
     color: #FFFFFF; /* White text color */
     border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 18px;
     cursor: pointer;
     margin: 20px 0;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #218838; /* Darker green on hover */
 }
 
 /* Input Style */
 input[type="file"] {
     margin: 20px 0;
+    font-size: 16px; /* Adjust font size for better accessibility */
 }
 
 /* GIF Container Style */
-#gif-container {
-    margin: 20px 0;
+#gifPreview {
+    margin: 20px auto;
+    max-width: 100%; /* Ensure GIF does not overflow */
+    display: inline-block; /* Center GIF */
+}
+
+/* Video Preview Style */
+#preview video {
+    max-width: 100%; /* Ensure video does not overflow */
+    border: 1px solid #ddd; /* Light border around video */
+    border-radius: 5px; /* Rounded corners for the video */
+}
+
+/* Loading Indicator Style */
+#loading {
+    display: none; /* Hide by default */
+    font-size: 18px;
+    color: #666; /* Gray color for loading text */
 }
 
 /* Footer Style */
 footer {
-    margin: 20px 0;
-    font-size: 14px;
+    margin: 30px 0;
+    font-size: 16px;
+    color: #666; /* Gray color for footer text */
 }
 
 /* Footer Link Style */
 footer a {
-    color: #007BFF; /* Match the button color */
+    color: #28a745; /* Match the button color */
     text-decoration: none;
 }
 

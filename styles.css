@@ -13,6 +13,7 @@ body {
     background-position: 0 0, 20px 20px;
     color: #5a5a5a;
 }
+
 .container {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.9);
@@ -20,9 +21,11 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 h1 {
     color: #7c5295;
 }
+
 #imageContainer {
     width: 300px;
     height: 300px;
@@ -30,14 +33,16 @@ h1 {
     position: relative;
     overflow: hidden;
 }
+
 #uploadedImage {
     max-width: 100%;
     max-height: 100%;
     border: 10px solid #b8a3c8;
     border-radius: 50%;
     box-sizing: border-box;
-    display: none; /* Hide the image initially */
+    display: none;
 }
+
 .custom-file-upload {
     border: 2px solid #b8a3c8;
     display: inline-block;
@@ -48,9 +53,11 @@ h1 {
     border-radius: 5px;
     transition: all 0.3s ease;
 }
+
 .custom-file-upload:hover {
     background-color: #e1d4ed;
 }
+
 button {
     background-color: #a788c8;
     color: white;
@@ -61,25 +68,31 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 button:hover {
     background-color: #9370db;
 }
+
 button:disabled {
     background-color: #d1c1e0;
     cursor: not-allowed;
 }
+
 .control-group {
     margin-top: 15px;
 }
+
 label {
     display: block;
     margin-bottom: 5px;
     color: #7c5295;
 }
+
 input[type="range"], input[type="color"] {
     width: 100%;
     max-width: 200px;
 }
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

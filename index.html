@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Spinner</title>
+    <title>Image Spinner to MP4</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Image Spinner</h1>
-    <input type="file" id="upload" accept="image/*">
+    <h1>Image Spinner to MP4</h1>
+    
     <div id="spinner-container">
-        <img id="image" alt="Your image will spin here">
+        <canvas id="canvas"></canvas>
     </div>
-    <a id="download-link" href="#" download="spun-image.gif">Download Spinning Image</a>
+
+    <input type="file" id="upload" accept="image/*">
+    <button id="generate-video">Generate Video</button>
+    
+    <a id="download-link" href="" download="spinning-video.mp4" style="display: none;">Download Video</a>
+    
     <footer>
-        <p>Follow me on <a href="https://twitter.com/your-twitter-handle" target="_blank">@your-twitter-handle</a></p>
+        <p>Follow us on <a href="https://twitter.com/your-twitter-handle" target="_blank">Twitter</a></p>
     </footer>
-    <script src="scripts.js"></script>
+    
+    <script src="script.js"></script>
 </body>
 </html>

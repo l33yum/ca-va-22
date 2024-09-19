@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const uploadInput = document.getElementById('upload');
-    const generateButton = document.getElementById('generate-gif');
     const gifContainer = document.getElementById('gif-container');
+    const loading = document.getElementById('loading');
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     let image = new Image();
@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 image.onload = function() {
                     canvas.width = image.naturalWidth;
                     canvas.height = image.naturalHeight;
-                    generateFrames();
+                    generateFrames().then(() => {
+                        displayGif();
+                    });
                 };
             };
             reader.readAsDataURL(file);
@@ -27,21 +29,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Generate frames for spinning effect
     function generateFrames() {
-        frames = [];
-        const angleStep = (2 * Math.PI) / totalFrames;
-        for (let i = 0; i < totalFrames; i++) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.save();
-            ctx.translate(canvas.width / 2, canvas.height / 2);
-            ctx.rotate(angleStep * i);
-            ctx.drawImage(image, -image.naturalWidth / 2, -image.naturalHeight / 2);
-            ctx.restore();
-            frames.push(canvas.toDataURL('image/png'));
-        }
+        return new Promise((resolve) => {
+            frames = [];
+            const angleStep = (2 * Math.PI) / totalFrames;
+            for (let i = 0; i < totalFrames; i++) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.save();
+                ctx.translate(canvas.width / 2, canvas.height / 2);
+                ctx.rotate(angleStep * i);
+                ctx.drawImage(image, -image.naturalWidth / 2, -image.naturalHeight / 2);
+                ctx.restore();
+                frames.push(canvas.toDataURL('image/png'));
+            }
+            resolve();
+        });
     }
 
     // Generate GIF from frames and display it
-    generateButton.addEventListener('click', function() {
+    function displayGif() {
+        loading.style.display = 'block'; // Show loading indicator
+
         const gif = new GIF({
             workers: 2,
             quality: 10,
@@ -59,9 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         gif.on('finished', function(blob) {
             const gifURL = URL.createObjectURL(blob);
-            gifContainer.innerHTML = `<img src="${gifURL}" alt="Spinning GIF" style="max-width: 100%; height: auto;">`;
+            gifContainer.innerHTML = `<img src="${gifURL}" alt="Spinning GIF">`;
+            loading.style.display = 'none'; // Hide loading indicator
         });
 
         gif.render();
-    });
+    }
 });

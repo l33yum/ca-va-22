@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const ctx = canvas.getContext('2d');
     let image = new Image();
     let frames = [];
-    const totalFrames = 360; // Number of frames for 6 revolutions
+    const totalFrames = 60; // Reduced number of frames for better performance
 
     // Handle image upload
     uploadInput.addEventListener('change', function(event) {
@@ -20,12 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     canvas.height = image.naturalHeight;
                     generateFrames();
                 };
-                image.onerror = function() {
-                    console.error('Failed to load image.');
-                };
-            };
-            reader.onerror = function() {
-                console.error('Failed to read file.');
             };
             reader.readAsDataURL(file);
         }
@@ -60,13 +54,13 @@ document.addEventListener('DOMContentLoaded', function() {
             img.src = frame;
             img.onload = function() {
                 ctx.drawImage(img, 0, 0);
-                gif.addFrame(ctx, { delay: 100 }); // Add frame to GIF (100 ms per frame)
+                gif.addFrame(ctx, { delay: 100 }); // 100 ms per frame
             };
         });
 
         gif.on('finished', function(blob) {
             const gifURL = URL.createObjectURL(blob);
-            gifContainer.innerHTML = `<img src="${gifURL}" alt="Spinning GIF" style="max-width: 100%; height: auto;">`; // Display GIF
+            gifContainer.innerHTML = `<img src="${gifURL}" alt="Spinning GIF" style="max-width: 100%; height: auto;">`;
         });
 
         gif.render();

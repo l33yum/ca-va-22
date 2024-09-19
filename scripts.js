@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageUpload = document.getElementById('imageUpload');
     const toggleButton = document.getElementById('toggleButton');
     const uploadedImage = document.getElementById('uploadedImage');
-    const spinner = document.getElementById('spinner');
     const speedControl = document.getElementById('speedControl');
     const borderColorControl = document.getElementById('borderColorControl');
 
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
             reader.onload = function(event) {
                 uploadedImage.src = event.target.result;
                 uploadedImage.style.display = 'block';
-                spinner.style.display = 'block';
                 toggleButton.disabled = false;
                 updateSpinAnimation();
             };
@@ -34,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateSpinAnimation() {
         const duration = 11 - speedControl.value; // Invert scale so higher value = faster
-        spinner.style.animation = isSpinning ? `spin ${duration}s linear infinite` : 'none';
+        uploadedImage.style.animation = isSpinning ? `spin ${duration}s linear infinite` : 'none';
     }
 
     function updateBorderColor() {

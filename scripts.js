@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const reader = new FileReader();
             reader.onload = function(event) {
                 uploadedImage.src = event.target.result;
-                uploadedImage.style.display = 'block';
+                uploadedImage.style.display = 'block'; // Ensure image is displayed
                 toggleButton.disabled = false;
                 updateSpinAnimation();
             };

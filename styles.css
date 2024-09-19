@@ -1,47 +1,93 @@
+/* General Body Style */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #FFC0CB; /* Light pink background */
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); /* Gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     color: #333;
+}
+
+/* Container Style */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft border */
     text-align: center;
+    max-width: 600px;
+    width: 100%;
 }
+
+/* Header Style */
 h1 {
-    margin: 20px;
+    margin: 0 0 20px;
     font-size: 2em;
+    color: #333;
 }
+
+/* Input and Button Styles */
+input[type="file"],
 button {
-    background-color: #28a745; /* Green button */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    display: block;
+    margin: 20px auto;
+    font-size: 1em;
     padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
     cursor: pointer;
-    margin: 10px;
 }
-button:hover {
-    background-color: #218838; /* Darker green on hover */
-}
+
 input[type="file"] {
-    margin: 10px;
-}
-#gif-container img {
-    max-width: 100%;
-    height: auto;
-    margin: 10px;
-}
-#loading {
-    display: none;
-    font-size: 18px;
+    background-color: #f1f1f1;
     color: #666;
 }
-footer {
-    margin: 20px 0;
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    transition: background-color 0.3s ease;
 }
+
+button:hover {
+    background-color: #218838;
+}
+
+/* GIF Container Style */
+#gif-container {
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+#gif-container img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading Style */
+#loading {
+    display: none;
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* Footer Style */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;
+}
+
 footer a {
-    color: #28a745; /* Match button color */
+    color: #28a745;
     text-decoration: none;
 }
+
 footer a:hover {
     text-decoration: underline;
 }

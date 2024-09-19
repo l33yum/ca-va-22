@@ -4,6 +4,7 @@ const uploadedImage = document.getElementById('uploadedImage');
 const spinner = document.getElementById('spinner');
 const speedControl = document.getElementById('speedControl');
 const borderColorControl = document.getElementById('borderColorControl');
+const imageContainer = document.getElementById('imageContainer');
 
 let isSpinning = false;
 
@@ -13,7 +14,6 @@ imageUpload.addEventListener('change', function(e) {
         const reader = new FileReader();
         reader.onload = function(e) {
             uploadedImage.src = e.target.result;
-            uploadedImage.style.display = 'block';
             spinner.style.display = 'block';
             toggleButton.disabled = false;
             updateSpinAnimation();
@@ -37,5 +37,5 @@ function updateSpinAnimation() {
 }
 
 function updateBorderColor() {
-    uploadedImage.style.borderColor = borderColorControl.value;
+    imageContainer.style.borderColor = borderColorControl.value;
 }

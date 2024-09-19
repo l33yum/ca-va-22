@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const ctx = canvas.getContext('2d');
     let image = new Image();
     let frames = [];
-    const totalFrames = 60; // Reduced number of frames for better performance
+    const totalFrames = 60; // Number of frames for spinning effect
 
     // Handle image upload
     uploadInput.addEventListener('change', function(event) {
@@ -53,8 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const img = new Image();
             img.src = frame;
             img.onload = function() {
-                ctx.drawImage(img, 0, 0);
-                gif.addFrame(ctx, { delay: 100 }); // 100 ms per frame
+                gif.addFrame(img, { delay: 100 }); // 100 ms per frame
             };
         });
 

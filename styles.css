@@ -1,91 +1,91 @@
+/* Import the Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
 /* General Body Style */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); /* Gradient background */
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); /* Warm gradient background */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     color: #333;
 }
 
-/* Container Style */
 .container {
     background-color: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft border */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-align: center;
     max-width: 600px;
     width: 100%;
+    transition: transform 0.3s;
 }
 
-/* Header Style */
+.container:hover {
+    transform: translateY(-10px);
+}
+
 h1 {
-    margin: 0 0 20px;
-    font-size: 2em;
+    margin: 0 0 30px;
+    font-size: 2.5em;
     color: #333;
-}
-
-/* Input and Button Styles */
-input[type="file"],
-button {
-    display: block;
-    margin: 20px auto;
-    font-size: 1em;
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
+    font-weight: 600;
 }
 
 input[type="file"] {
-    background-color: #f1f1f1;
-    color: #666;
+    display: inline-block;
+    padding: 12px 25px;
+    border: 2px solid #ff6b6b;
+    border-radius: 30px;
+    background-color: #ffffff;
+    color: #ff6b6b;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-button {
-    background-color: #28a745;
-    color: #fff;
-    transition: background-color 0.3s ease;
+input[type="file"]:hover {
+    background-color: #ff6b6b;
+    color: #ffffff;
 }
 
-button:hover {
-    background-color: #218838;
+/* Image Container */
+#image-container {
+    margin-top: 30px;
 }
 
-/* GIF Container Style */
-#gif-container {
-    margin: 20px auto;
+/* Spinning Animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#spinning-image {
     max-width: 100%;
-}
-
-#gif-container img {
-    max-width: 100%;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: spin 3s linear infinite;
 }
 
-/* Loading Style */
-#loading {
-    display: none;
-    font-size: 1.2em;
-    color: #666;
-}
-
-/* Footer Style */
 footer {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
     font-size: 0.9em;
     color: #666;
 }
 
 footer a {
-    color: #28a745;
+    color: #ff6b6b;
     text-decoration: none;
+    font-weight: 600;
 }
 
 footer a:hover {

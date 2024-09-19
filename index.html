@@ -65,7 +65,6 @@
 <body>
     <h1>Image to Spinning GIF Converter</h1>
     <input type="file" id="upload" accept="image/*">
-    <button id="generate-gif">Generate Spinning GIF</button>
     <div id="gif-container"></div>
     <div id="loading">Processing...</div>
     <footer>
@@ -78,8 +77,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const uploadInput = document.getElementById('upload');
-            const generateButton = document.getElementById('generate-gif');
             const gifContainer = document.getElementById('gif-container');
+            const loading = document.getElementById('loading');
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
             let image = new Image();
@@ -96,8 +95,9 @@
                         image.onload = function() {
                             canvas.width = image.naturalWidth;
                             canvas.height = image.naturalHeight;
-                            generateFrames();
-                            displayGif(); // Generate and display GIF as soon as the image is loaded
+                            generateFrames().then(() => {
+                                displayGif();
+                            });
                         };
                     };
                     reader.readAsDataURL(file);
@@ -106,21 +106,26 @@
 
             // Generate frames for spinning effect
             function generateFrames() {
-                frames = [];
-                const angleStep = (2 * Math.PI) / totalFrames;
-                for (let i = 0; i < totalFrames; i++) {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    ctx.save();
-                    ctx.translate(canvas.width / 2, canvas.height / 2);
-                    ctx.rotate(angleStep * i);
-                    ctx.drawImage(image, -image.naturalWidth / 2, -image.naturalHeight / 2);
-                    ctx.restore();
-                    frames.push(canvas.toDataURL('image/png'));
-                }
+                return new Promise((resolve) => {
+                    frames = [];
+                    const angleStep = (2 * Math.PI) / totalFrames;
+                    for (let i = 0; i < totalFrames; i++) {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        ctx.save();
+                        ctx.translate(canvas.width / 2, canvas.height / 2);
+                        ctx.rotate(angleStep * i);
+                        ctx.drawImage(image, -image.naturalWidth / 2, -image.naturalHeight / 2);
+                        ctx.restore();
+                        frames.push(canvas.toDataURL('image/png'));
+                    }
+                    resolve();
+                });
             }
 
             // Generate GIF from frames and display it
             function displayGif() {
+                loading.style.display = 'block'; // Show loading indicator
+
                 const gif = new GIF({
                     workers: 2,
                     quality: 10,
@@ -139,6 +144,7 @@
                 gif.on('finished', function(blob) {
                     const gifURL = URL.createObjectURL(blob);
                     gifContainer.innerHTML = `<img src="${gifURL}" alt="Spinning GIF">`;
+                    loading.style.display = 'none'; // Hide loading indicator
                 });
 
                 gif.render();

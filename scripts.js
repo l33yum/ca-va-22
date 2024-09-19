@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     video.compile(false, function(output) {
                         const videoURL = URL.createObjectURL(output);
                         downloadLink.href = videoURL;
+                        downloadLink.download = 'spinning-image.mp4'; // Set default file name
                         downloadLink.style.display = 'block'; // Show download link
                     });
                 }
@@ -63,4 +64,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-``

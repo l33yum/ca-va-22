@@ -1,94 +1,85 @@
 /* Basic Reset */
-body, h1, p {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* General Styles */
+/* Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #fdf6f0; /* Light pastel peach background */
-    color: #333;
     text-align: center;
+    background-color: #f9f9f9; /* Light pastel background */
+    color: #333; /* Darker text for readability */
     padding: 20px;
 }
 
+/* Header Styling */
 h1 {
-    margin-top: 20px;
-    font-size: 24px;
-    color: #6a5acd; /* Pastel purple */
+    color: #ff6f61; /* Pastel Coral */
+    margin-bottom: 20px;
 }
 
 /* Spinner Container */
 #spinner-container {
-    width: 300px;
-    height: 300px;
-    margin: 20px auto;
     position: relative;
-    border: 2px solid #d0e1f9; /* Pastel blue border */
-    background-color: #ffffff; /* White background */
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 500px;
+    height: 500px;
+    background-color: #ffffff; /* White background for canvas */
+    border: 2px solid #e0e0e0; /* Light border for container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-#image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: none; /* Hide initially */
+/* Canvas Styling */
+canvas {
+    display: block;
+    margin: 0 auto;
 }
 
-/* Animation */
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.spin {
-    animation: spin 2s linear infinite;
-}
-
-/* Upload Input */
-#upload {
-    margin-top: 20px;
+/* File Input Styling */
+input[type="file"] {
+    margin: 20px;
     padding: 10px;
-    border: 2px solid #a1c4fd; /* Pastel blue */
+    border: 2px solid #e0e0e0;
     border-radius: 5px;
-    background-color: #e3f2fd; /* Light pastel blue background */
-    color: #007bff;
+    background-color: #f0f8ff; /* Light pastel blue */
+}
+
+/* Button Styling */
+button {
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #ff6f61; /* Pastel Coral */
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
-#upload:hover {
-    background-color: #d0eaff; /* Slightly darker pastel blue */
+button:hover {
+    background-color: #ff4d4d; /* Slightly darker coral */
 }
 
-/* Download Link */
-#download-link {
+/* Download Link Styling */
+a#download-link {
     display: none;
     margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #a2c2e0; /* Pastel blue */
-    color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    color: #4caf50; /* Pastel Green */
     font-weight: bold;
 }
 
-#download-link:hover {
-    background-color: #8ab6d6; /* Slightly darker pastel blue */
-}
-
-/* Footer */
+/* Footer Styling */
 footer {
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 14px;
-    color: #6a5acd; /* Pastel purple */
 }
 
 footer a {
-    color: #a1c4fd; /* Pastel blue */
+    color: #2196f3; /* Pastel Blue */
     text-decoration: none;
 }
 

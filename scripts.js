@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const uploadInput = document.getElementById('upload');
     const generateButton = document.getElementById('generate-video');
     const downloadLink = document.getElementById('download-link');
-    const gifContainer = document.getElementById('gif-container'); // Container for the GIF
+    const gifContainer = document.getElementById('gif-container');
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     let image = new Image();
@@ -21,6 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     canvas.height = image.naturalHeight;
                     generateFrames();
                 };
+                image.onerror = function() {
+                    console.error('Failed to load image.');
+                };
+            };
+            reader.onerror = function() {
+                console.error('Failed to read file.');
             };
             reader.readAsDataURL(file);
         }
@@ -78,6 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                     gif.render();
                 }
+            };
+            img.onerror = function() {
+                console.error('Failed to load frame image.');
             };
         });
     });
